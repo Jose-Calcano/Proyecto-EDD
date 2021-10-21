@@ -1,0 +1,41 @@
+Restaurantes
+A,Pizpa,Pizza Margarita/Pasticho/Refresco
+B,Sótano Siete,Prosciutto Funghi/Pizza Napoletana/Calzone
+C,Avila Burgers,Banquito Burger/Papas Fritas/Aros de Cebolla/Nestea
+D,Buffalo Wings,Papitas Kardashian/Burger Homero/Costillas/Agua
+E,Holy Chicken,Holy Chicken/Holy Tempeh/Holy Slaw/Holy Chicken Tenders
+Clientes
+1,Pepe,Gónzales,234354
+2,Stephania,Cominos,24574354
+3,Andrea,Stanislao,27385643
+4,Josefina,La Sifrina,6547584
+5,Rosa,Mosa,574543
+6,Eduardo,Petardo,4326534
+7,Enrique,Manrique,434543
+Pedidos
+3,A,2-Pizza Margarita/1-Pasticho
+6,E,5-Holy Tempeh/1-Holy Chicken Tenders
+1,C,9-Banquito Burger/6-Aros de Cebolla
+4,B,3-Prosciutto Funghi
+7,D,4-Burger Homero/1-Costillas
+Rutas
+A,1,3
+A,2,2
+1,C,2
+1,5,8
+2,E,2
+2,4,4
+C,5,3
+4,3,2
+4,B,6
+5,B,3
+5,E,7
+B,6,7
+3,7,1
+7,D,4
+D,B,1
+D,6,5
+6,5,5
+6,C,6
+E,1,1
+E,A,1
