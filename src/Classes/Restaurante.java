@@ -13,11 +13,13 @@ public class Restaurante {
     char key;
     String name;
     String menu;
+    Restaurante next;
     
-    public Restaurante(char key, String name, String menu) {
+    public Restaurante(char key, String name, String menu, Restaurante nextRestaurante) {
         this.key = key;
         this.name = name;
         this.menu = menu;
+        this.next = nextRestaurante;
     }
     /**
      * Description: Adds a new dish to the menu
