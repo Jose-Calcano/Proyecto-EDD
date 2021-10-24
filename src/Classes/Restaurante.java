@@ -31,7 +31,4 @@ public class Restaurante {
         this.menu = menu.replaceAll(dish + "/", "");
     }
     
-    public static void main(String[] args) {
-        
-    }
 }

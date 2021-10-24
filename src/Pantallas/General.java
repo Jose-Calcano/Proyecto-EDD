@@ -5,6 +5,7 @@
  */
 package Pantallas;
 
+import Classes.Funciones;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -21,17 +22,9 @@ public class General extends javax.swing.JFrame {
      */
     public General() {
         initComponents();
-        scaleImage(image1, "Frutas.jpg");
+        Funciones a = new Funciones();
+        a.scaleImage(image1, "Frutas.jpg");
     }
-    
-    public void scaleImage(JLabel frame, String imgName) {
-        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("build/classes/Images/" + imgName));
-        Image img = icon.getImage();
-        Image imgScale = img.getScaledInstance(frame.getWidth(), frame.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        frame.setIcon(scaledIcon);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
