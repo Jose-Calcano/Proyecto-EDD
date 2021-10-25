@@ -24,10 +24,16 @@ public class Funciones {
     }
 
     public void scaleImage(JLabel frame, String imgName) {
-        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("build/classes/Images/" + imgName));
+        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Test/Resources" + imgName));
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(frame.getWidth(), frame.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
-        frame.setIcon(scaledIcon);
+        frame.setIcon(scaledIcon);        
+    }
+    
+    public void creacionObjetosClientes(){
+        for (int i = 0, i <= archivo.lenght, i++){
+            
+    }
     }
 }
