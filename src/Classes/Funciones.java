@@ -24,7 +24,7 @@ public class Funciones {
     }
 
     public void scaleImage(JLabel frame, String imgName) {
-        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Test/Resources" + imgName));
+        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Test/Resources/" + imgName));
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(frame.getWidth(), frame.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);

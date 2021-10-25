@@ -15,4 +15,8 @@ public class GrafoMA {
         this.numVertices = 0;
         this.matrizAdy = new int[n][n];
     }
+    
+    public boolean isEmpty() {
+        return numVertices == 0;
+    }
 }
