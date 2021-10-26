@@ -6,8 +6,11 @@ import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.PrintWriter;
+=======
+>>>>>>> Commit.rawr
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -109,6 +112,14 @@ public class Funciones {
         String[] spliceArrayClientes = spliceClientes[1].split(""); 
         System.out.println(spliceArrayClientes[0]);
     }
+<<<<<<< HEAD
+=======
+    
+//    public void creacionObjetosClientes(){
+//        for (int i = 0, i <= archivo.lenght, i++){
+//            
+//    }
+>>>>>>> Commit.rawr
     
     public static void main(String[] args) {
         Funciones a = new Funciones();
