@@ -2,7 +2,10 @@ package Classes;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.PrintWriter;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -54,10 +57,16 @@ public class Funciones {
                 newTxt += "Rutas \n";
                 String textoRutas = rutas.rutasString(clientes, restaurantes);
                 newTxt += textoRutas;
-                //ya esta el txt, solo falta write en el txt de la ruta del JFileChooser
-                
+                JFileChooser jf = new JFileChooser();
+                jf.showOpenDialog(null);
+                File archivo = jf.getSelectedFile();
+                String ruta = archivo.getAbsolutePath();
+                try (PrintWriter pw = new PrintWriter(ruta)) {
+                    pw.print(newTxt);
+                }
+                JOptionPane.showMessageDialog(null, "Actualización exitosa.");
             } catch (Exception e) {
-                
+                JOptionPane.showMessageDialog(null, "Error en el catch");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Error, una de las estructuras no tiene información");
@@ -77,20 +86,4 @@ public class Funciones {
 //            
 //    }
     
-    public static void main(String[] args) {
-        Funciones a = new Funciones();
-        ListaClientes clientes = new ListaClientes();
-        Cliente clinet = new Cliente(1, "Pedro", "Jose", "01830128u");
-        clientes.addAtTheEnd(clinet);
-        ListaRestaurantes restaurantes = new ListaRestaurantes();
-        Restaurante rest = new Restaurante('A', "Juanchis Burgers", "Papas/queso/paloma");
-        restaurantes.addAtTheEnd(rest);
-        ListaPedidos pedidos = new ListaPedidos();
-        Pedido ped = new Pedido("1", "A", "4-Papas/2-queso");
-        pedidos.addAtTheEnd(ped);
-        GrafoMA rutas = new GrafoMA(5);
-        rutas.numVertices += 1;
-        
-        a.actualizarTexto(clientes, restaurantes, pedidos, rutas);
-    }
-    }
+}
