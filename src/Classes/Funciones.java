@@ -1,7 +1,11 @@
 package Classes;
+       
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.File;
 import java.io.PrintWriter;
 import javax.swing.ImageIcon;
@@ -14,6 +18,8 @@ import javax.swing.JOptionPane;
  * @author juanc
  */
 public class Funciones {
+    String line;
+    String clientes_txt;
 
     public Funciones() {
 
@@ -81,9 +87,50 @@ public class Funciones {
         frame.setIcon(scaledIcon);        
     }
     
+    public void lecturaArchivo(String rutaCarga){
+        try {
+            File file = new File(rutaCarga);
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            while ((line = br.readLine()) != null) {
+                 if (!line.isEmpty()) {
+                    clientes_txt += line + "\n";
+            br.close();
+                 }
+             }
+        } catch(Exception e){
+            
+        } 
+        String[] spliceRestaurantes = clientes_txt.split("Clientes"); 
+        String[] spliceClientes = spliceRestaurantes[1].split("Pedidos"); 
+        String[] splicePedidos = clientes_txt.split("Pedidos");  
+        String[] spliceRutas = splicePedidos[1].split("Rutas"); 
+        System.out.println(spliceClientes[1]);
+        String[] spliceArrayClientes = spliceClientes[1].split(""); 
+        System.out.println(spliceArrayClientes[0]);
+    }
+    
 //    public void creacionObjetosClientes(){
 //        for (int i = 0, i <= archivo.lenght, i++){
 //            
 //    }
     
-}
+    public static void main(String[] args) {
+        Funciones a = new Funciones();
+        ListaClientes clientes = new ListaClientes();
+        Cliente clinet = new Cliente(1, "Pedro", "Jose", "01830128u");
+        clientes.addAtTheEnd(clinet);
+        ListaRestaurantes restaurantes = new ListaRestaurantes();
+        Restaurante rest = new Restaurante('A', "Juanchis Burgers", "Papas/queso/paloma");
+        restaurantes.addAtTheEnd(rest);
+        ListaPedidos pedidos = new ListaPedidos();
+        Pedido ped = new Pedido("1", "A", "4-Papas/2-queso");
+        pedidos.addAtTheEnd(ped);
+        GrafoMA rutas = new GrafoMA(5);
+        rutas.numVertices += 1;
+        
+        a.actualizarTexto(clientes, restaurantes, pedidos, rutas);
+    }
+    
+    }
+

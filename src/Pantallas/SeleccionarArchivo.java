@@ -44,6 +44,7 @@ public class SeleccionarArchivo extends javax.swing.JFrame {
         img3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cargar archivo de texto");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -180,7 +181,9 @@ public class SeleccionarArchivo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      String rutaCarga = ruta.getText();
+      String rutaCarga = ruta.getText();    
+      Funciones funcion = new Funciones();
+      funcion.lecturaArchivo(rutaCarga);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
