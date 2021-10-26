@@ -10,11 +10,11 @@ public class Cliente {
     String firstName, lastName, ci;
     Cliente next;
     
-    public Cliente(int key, String firstName, String lastName, String ci, Cliente nextClient) {
+    public Cliente(int key, String firstName, String lastName, String ci) {
         this.key = key;
         this.firstName = firstName;
         this.lastName = lastName;
         this.ci = ci;
-        this.next = nextClient;
+        this.next = null;
     }
 }
