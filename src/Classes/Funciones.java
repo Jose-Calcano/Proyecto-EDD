@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +20,48 @@ public class Funciones {
 
     }
 
-    public void actualizarTexto() {
-
+    public void actualizarTexto(ListaClientes clientes, ListaRestaurantes restaurantes, ListaPedidos pedidos, GrafoMA rutas) {
+        if (!(clientes.isEmpty() || restaurantes.isEmpty() || rutas.isEmpty() || pedidos.isEmpty())) {
+            try {
+                String newTxt = "";
+                newTxt += "Restaurantes \n";
+                for (int i = 0; i < restaurantes.size; i++) {
+                    Restaurante temp = restaurantes.first;
+                    while (temp != null) {
+                        String newLine = Character.toString(temp.key) + "," + temp.name + "," + temp.menu + "\n";
+                        newTxt += newLine;
+                        temp = temp.next;
+                    }
+                }
+                newTxt += "Clientes \n";
+                for (int i = 0; i < clientes.size; i++) {
+                    Cliente temp = clientes.first;
+                    while (temp != null) {
+                        String newLine = Integer.toString(temp.key) + "," + temp.firstName + "," + temp.lastName + "," + temp.ci + "\n";
+                        newTxt += newLine;
+                        temp = temp.next;
+                    }
+                }
+                newTxt += "Pedidos \n";
+                for (int i = 0; i < pedidos.size; i++) {
+                    Pedido temp = pedidos.first;
+                    while (temp != null) {
+                        String newLine = temp.llegada + "," + temp.salida+ "," + temp.pedido + "\n";
+                        newTxt += newLine;
+                        temp = temp.next;
+                    }
+                }
+                newTxt += "Rutas \n";
+                String textoRutas = rutas.rutasString(clientes, restaurantes);
+                newTxt += textoRutas;
+                //ya esta el txt, solo falta write en el txt de la ruta del JFileChooser
+                
+            } catch (Exception e) {
+                
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Error, una de las estructuras no tiene información");
+        }
     }
 
     public void scaleImage(JLabel frame, String imgName) {
@@ -31,9 +72,25 @@ public class Funciones {
         frame.setIcon(scaledIcon);        
     }
     
-    public void creacionObjetosClientes(){
-        for (int i = 0, i <= archivo.lenght, i++){
-            
+//    public void creacionObjetosClientes(){
+//        for (int i = 0, i <= archivo.lenght, i++){
+//            
+//    }
+    
+    public static void main(String[] args) {
+        Funciones a = new Funciones();
+        ListaClientes clientes = new ListaClientes();
+        Cliente clinet = new Cliente(1, "Pedro", "Jose", "01830128u");
+        clientes.addAtTheEnd(clinet);
+        ListaRestaurantes restaurantes = new ListaRestaurantes();
+        Restaurante rest = new Restaurante('A', "Juanchis Burgers", "Papas/queso/paloma");
+        restaurantes.addAtTheEnd(rest);
+        ListaPedidos pedidos = new ListaPedidos();
+        Pedido ped = new Pedido("1", "A", "4-Papas/2-queso");
+        pedidos.addAtTheEnd(ped);
+        GrafoMA rutas = new GrafoMA(5);
+        rutas.numVertices += 1;
+        
+        a.actualizarTexto(clientes, restaurantes, pedidos, rutas);
     }
     }
-}

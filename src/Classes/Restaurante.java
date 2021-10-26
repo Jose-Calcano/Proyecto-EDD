@@ -30,7 +30,7 @@ public class Restaurante {
     }
     
     public void removeDish(String dish) {
-        this.menu = menu.replaceAll(dish + "/", "");
+        this.menu = menu.replaceAll("/" + dish, "");
     }
     
 }

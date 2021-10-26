@@ -6,14 +6,14 @@ package Classes;
  * @author juanc
  */
 public class Pedido {
-    String salida;
     String llegada;
+    String salida;
     String pedido;
     Pedido next;
     
-    public Pedido(String salida, String llegada, String pedido) {
-        this.salida = salida;
+    public Pedido(String llegada, String salida, String pedido) {
         this.llegada = llegada;
+        this.salida = salida;
         this.pedido = pedido;
         this.next = null;
     }
