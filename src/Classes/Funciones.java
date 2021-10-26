@@ -110,11 +110,6 @@ public class Funciones {
         System.out.println(spliceArrayClientes[0]);
     }
     
-//    public void creacionObjetosClientes(){
-//        for (int i = 0, i <= archivo.lenght, i++){
-//            
-//    }
-    
     public static void main(String[] args) {
         Funciones a = new Funciones();
         ListaClientes clientes = new ListaClientes();
