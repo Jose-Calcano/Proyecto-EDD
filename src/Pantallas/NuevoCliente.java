@@ -33,14 +33,14 @@ public class NuevoCliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        Nombre = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        Apellido = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
+        Cedula = new javax.swing.JTextPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        Direccion = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -68,7 +68,7 @@ public class NuevoCliente extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Por favor ingrese los datos requeridos del cliente a registrar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(255, 102, 0))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(Nombre);
 
         jButton1.setBackground(new java.awt.Color(255, 153, 0));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -80,11 +80,11 @@ public class NuevoCliente extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane3.setViewportView(jTextPane3);
+        jScrollPane3.setViewportView(Apellido);
 
-        jScrollPane4.setViewportView(jTextPane4);
+        jScrollPane4.setViewportView(Cedula);
 
-        jScrollPane5.setViewportView(jTextPane5);
+        jScrollPane5.setViewportView(Direccion);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,6 +107,11 @@ public class NuevoCliente extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Siguiente");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -189,6 +194,18 @@ public class NuevoCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nombreInput = Nombre.getText();
+        String apellidoInput = Apellido.getText();
+        String cedulaInput = Cedula.getText();
+        int cedulaParseada = Integer.parseInt(cedulaInput); 
+        String direccionInput = Direccion.getText();
+        System.out.println(nombreInput);
+        System.out.println(apellidoInput);
+        System.out.println(cedulaParseada);
+        System.out.println(direccionInput);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -225,6 +242,10 @@ public class NuevoCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextPane Apellido;
+    private javax.swing.JTextPane Cedula;
+    private javax.swing.JTextPane Direccion;
+    private javax.swing.JTextPane Nombre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -239,10 +260,6 @@ public class NuevoCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
     // End of variables declaration//GEN-END:variables
 }
