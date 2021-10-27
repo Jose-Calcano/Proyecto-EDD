@@ -4,7 +4,6 @@ package Classes;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.File;
 import java.io.PrintWriter;
