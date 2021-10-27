@@ -95,7 +95,7 @@ public class Funciones {
             while ((line = br.readLine()) != null) {
                  if (!line.isEmpty()) {
                     clientes_txt += line + "\n";
-            br.close();
+
                  }
              }
         } catch(Exception e){
