@@ -101,13 +101,22 @@ public class Funciones {
         } catch(Exception e){
             
         } 
-        String[] spliceRestaurantes = clientes_txt.split("Clientes"); 
-        String[] spliceClientes = spliceRestaurantes[1].split("Pedidos"); 
-        String[] splicePedidos = clientes_txt.split("Pedidos");  
-        String[] spliceRutas = splicePedidos[1].split("Rutas"); 
-        System.out.println(spliceClientes[1]);
-        String[] spliceArrayClientes = spliceClientes[1].split(""); 
-        System.out.println(spliceArrayClientes[0]);
+        String[] splitRestaurantes = clientes_txt.split("Clientes"); 
+        
+        String[] splitPedidos = splitRestaurantes[1].split("Pedidos"); 
+        
+        String[] splitRutas = splitPedidos[1].split("Rutas"); 
+        
+        String[] splitFinal = splitRestaurantes[0].split("Restaurantes"); 
+        
+        System.out.println(splitFinal[1]); //Restaurante
+
+        System.out.println(splitPedidos[0]); //Clientes
+        
+        System.out.println(splitRutas[0]); //Pedidos
+        
+        System.out.println(splitRutas[1]); //Rutas
+        
     }
 
     
