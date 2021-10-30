@@ -119,7 +119,6 @@ public class Funciones {
        Funciones contar = new Funciones();
         int clientesIteracion = contar.countLines(iteracion);
         for ( int i = 0 ; i <= clientesIteracion ; i++){
-           String[] print = clientes.split("clientesIteracion");
                }
         }
     
