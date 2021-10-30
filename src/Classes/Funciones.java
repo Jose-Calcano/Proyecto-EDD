@@ -81,7 +81,7 @@ public class Funciones {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         frame.setIcon(scaledIcon);
     }
-
+    
     public void lecturaArchivo(String rutaCarga) {
         try {
             File file = new File(rutaCarga);
@@ -94,24 +94,37 @@ public class Funciones {
                 }
             }
         } catch (Exception e) {
-
+   
         }
         String[] splitRestaurantes = clientes_txt.split("Clientes");
-
+    
         String[] splitPedidos = splitRestaurantes[1].split("Pedidos");
-
+    
         String[] splitRutas = splitPedidos[1].split("Rutas");
-
+    
         String[] splitFinal = splitRestaurantes[0].split("Restaurantes");
-
+    
         System.out.println(splitFinal[1]); //Restaurante
-
+                        
         System.out.println(splitPedidos[0]); //Clientes
 
         System.out.println(splitRutas[0]); //Pedidos
 
         System.out.println(splitRutas[1]); //Rutas
-
+        
     }
+        
 
+    public void crearClientes(String clientes, String iteracion){
+       Funciones contar = new Funciones();
+        int clientesIteracion = contar.countLines(iteracion);
+        for ( int i = 0 ; i <= clientesIteracion ; i++){
+           String[] print = clientes.split("clientesIteracion");
+               }
+        }
+    
+    public int countLines(String str){
+      String[] lines = str.split("\r\n|\r|\n");
+        return  lines.length;
+    }
 }
