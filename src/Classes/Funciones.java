@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 import java.io.PrintWriter;
+import java.io.StringReader;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -112,18 +113,31 @@ public class Funciones {
 
         System.out.println(splitRutas[1]); //Rutas
         
-    }
+        Funciones test = new Funciones();
         
+        test.crearClientes(splitPedidos[0]);
 
-    public void crearClientes(String clientes, String iteracion){
-       Funciones contar = new Funciones();
-        int clientesIteracion = contar.countLines(iteracion);
-        for ( int i = 0 ; i <= clientesIteracion ; i++){
-               }
+    }
+
+    public void crearClientes(String clientes) {
+        Funciones contar = new Funciones();
+        int clientesIteracion = contar.countLines(clientes);
+        String print = clientes.replace(",", "\n");
+        System.out.println(print);
+        for (int i = 0; i <= clientesIteracion; i++) {
         }
-    
-    public int countLines(String str){
-      String[] lines = str.split("\r\n|\r|\n");
-        return  lines.length;
+            try ( BufferedReader bufReader = new BufferedReader(new StringReader(print))) {
+                String line;
+                while ((line = bufReader.readLine()) != null) {
+                    System.out.println(line);
+                    System.out.println("Prueba");
+                }
+            } catch (Exception e) {
+            }
+    }
+
+    public int countLines(String str) {
+        String[] lines = str.split("\r\n|\r|\n");
+        return lines.length;
     }
 }
