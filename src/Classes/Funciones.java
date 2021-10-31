@@ -123,6 +123,8 @@ public class Funciones {
         test.crearRestaurantes(splitFinal[1]);
         System.out.println("\n");
         test.crearPedidos(splitRutas[0]);
+        System.out.println("\n");
+        test.crearRutas(splitRutas[1]);
 
     }
 
@@ -249,6 +251,49 @@ public class Funciones {
                     ++contador2;
                     parametro4 = lineR;
                     Pedido nuevoPedido = new Pedido(parametro1, parametro2, parametro3);
+                    ListaDePedidos.addAtTheEnd(nuevoPedido);
+                    contador = 0;
+                    System.out.println(parametro4);
+                }
+              //  System.out.println(contador + ") " +  line);
+                ++contador;
+                ++contador2;
+            }
+        } catch (Exception e) {
+        }
+    }
+    public void crearRutas(String rutas) {
+        String printRutas = rutas.replace(",", "\n");
+        System.out.println(printRutas);
+        Funciones contarRutas = new Funciones();
+        int pedidosIteracion = contarRutas.countLines(rutas);
+        try ( BufferedReader bufReaderRutas = new BufferedReader(new StringReader(printRutas))) {
+            String lineR;
+            int contador = 0;
+            String parametro1 = "";
+            int contador2 = 0;
+            int parametro2 = 0;
+            int parametro3 = 0;
+     
+         
+            
+            while ((lineR = bufReaderRutas.readLine()) != null) {
+                if(contador2 == pedidosIteracion){
+                break;
+                }
+                if(contador == 1){
+                     parametro1 = lineR;
+                     System.out.println(parametro1);
+                }
+                if(contador != 0 && contador == 2){
+                     parametro2 = Integer.parseInt(lineR);
+                     System.out.println(parametro2);
+                }
+
+                if(contador != 0 && contador == 3){
+                    ++contador2;
+                    parametro3 = Integer.parseInt(lineR);
+                    Pedido nuevoRutas = new Pedido(parametro1, parametro2, parametro3);
                     ListaDePedidos.addAtTheEnd(nuevoPedido);
                     contador = 0;
                     System.out.println(parametro4);
