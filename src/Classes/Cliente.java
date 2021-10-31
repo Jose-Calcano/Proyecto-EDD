@@ -6,9 +6,9 @@ package Classes;
  * @author juanc
  */
 public class Cliente {
-    int key;
-    String firstName, lastName, ci;
-    Cliente next;
+    public int key;
+    public String firstName, lastName, ci;
+    public Cliente next;
     
     public Cliente(int key, String firstName, String lastName, String ci) {
         this.key = key;

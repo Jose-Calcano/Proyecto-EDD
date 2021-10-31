@@ -10,10 +10,10 @@ package Classes;
  * @author juanc
  */
 public class Restaurante {
-    char key;
-    String name;
-    String menu;
-    Restaurante next;
+    public char key;
+    public String name;
+    public String menu;
+    public Restaurante next;
     
     public Restaurante(char key, String name, String menu) {
         this.key = key;

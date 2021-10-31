@@ -6,10 +6,10 @@ package Classes;
  * @author juanc
  */
 public class Pedido {
-    String llegada;
-    String salida;
-    String pedido;
-    Pedido next;
+    public String llegada;
+    public String salida;
+    public String pedido;
+    public Pedido next;
     
     public Pedido(String llegada, String salida, String pedido) {
         this.llegada = llegada;
