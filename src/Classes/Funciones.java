@@ -154,6 +154,7 @@ public class Funciones {
                 this.grafoGuardado.añadirVertice(firstIndex, secondIndex, Integer.parseInt(atributos[2]));
             }
             JOptionPane.showMessageDialog(null, "Archivo cargado en el sistema.");
+            this.full = true;
         } else {
             JOptionPane.showMessageDialog(null, "El archivo esta vacío");
         }

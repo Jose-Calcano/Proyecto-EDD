@@ -96,7 +96,7 @@ public class GrafoMA {
         return vertex;
     }
 
-    public int[] rutaMasCortaDijkstra(int origenIndex, int destinoIndex) {
+    public String rutaMasCortaDijkstra(int origenIndex, int destinoIndex) {
         boolean[] spt = new boolean[this.maxNodos];
         int[] distance = new int[this.maxNodos];
         int[] etiquetas = new int[this.maxNodos];
@@ -120,9 +120,27 @@ public class GrafoMA {
                 }
             }
         }
-        return distance;
+        int index = destinoIndex;
+        String ruta = String.valueOf(index);
+        while (index != origenIndex) {
+            ruta += "," + String.valueOf(etiquetas[index]);
+            index = etiquetas[index];
+            
+        }
+        String[] arr_txt = ruta.split(",");
+        int i = arr_txt.length - 1;
+        String result = String.valueOf(arr_txt[i]);
+        boolean found = false;
+        while (!found) {
+            i --;
+            result += "," + String.valueOf(arr_txt[i]);
+            if (i == 0) {
+                found = true;
+            }
+        }
+        return result;
     }
-    
+
     public static void main(String[] args) {
         GrafoMA graph = new GrafoMA(5);
         graph.añadirVertice(0, 1, 4);
@@ -132,11 +150,8 @@ public class GrafoMA {
         graph.añadirVertice(1, 4, 10);
         graph.añadirVertice(3, 4, 3);
         graph.añadirVertice(4, 0, 20);
-        int[] rutas = graph.rutaMasCortaDijkstra(0, 2);
-        for (int i = 0; i < rutas.length; i++) {
-            System.out.println(rutas[i]);
-        }
+        String ruta = graph.rutaMasCortaDijkstra(1, 0);
+        System.out.println(ruta);
     }
-
 
 }
