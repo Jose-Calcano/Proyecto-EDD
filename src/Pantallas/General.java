@@ -33,11 +33,11 @@ public class General extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        cargar = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
+        mostrar = new javax.swing.JButton();
+        recorrer = new javax.swing.JButton();
+        selec_usuario = new javax.swing.JButton();
         image1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,43 +51,43 @@ public class General extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Samancito Delivery");
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 0));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Cargar archivo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cargar.setBackground(new java.awt.Color(255, 102, 0));
+        cargar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cargar.setForeground(new java.awt.Color(0, 0, 0));
+        cargar.setText("Cargar archivo");
+        cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cargarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 0));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Actualizar repositorio");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        actualizar.setBackground(new java.awt.Color(255, 102, 0));
+        actualizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(0, 0, 0));
+        actualizar.setText("Actualizar repositorio");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                actualizarActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 102, 0));
-        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Mostrar grafo");
+        mostrar.setBackground(new java.awt.Color(255, 102, 0));
+        mostrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mostrar.setForeground(new java.awt.Color(0, 0, 0));
+        mostrar.setText("Mostrar grafo");
 
-        jButton4.setBackground(new java.awt.Color(255, 102, 0));
-        jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Recorrer grafo");
+        recorrer.setBackground(new java.awt.Color(255, 102, 0));
+        recorrer.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        recorrer.setForeground(new java.awt.Color(0, 0, 0));
+        recorrer.setText("Recorrer grafo");
 
-        jButton5.setBackground(new java.awt.Color(255, 102, 0));
-        jButton5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Seleccionar usuario");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        selec_usuario.setBackground(new java.awt.Color(255, 102, 0));
+        selec_usuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        selec_usuario.setForeground(new java.awt.Color(0, 0, 0));
+        selec_usuario.setText("Seleccionar usuario");
+        selec_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                selec_usuarioActionPerformed(evt);
             }
         });
 
@@ -101,17 +101,17 @@ public class General extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5)
-                            .addComponent(jButton1))
+                            .addComponent(actualizar)
+                            .addComponent(mostrar)
+                            .addComponent(recorrer)
+                            .addComponent(selec_usuario)
+                            .addComponent(cargar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(image1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4, jButton5});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {actualizar, cargar, mostrar, recorrer, selec_usuario});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,21 +121,21 @@ public class General extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(cargar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(actualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(mostrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
+                        .addComponent(recorrer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selec_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(image1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4, jButton5});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {actualizar, cargar, mostrar, recorrer, selec_usuario});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,22 +158,21 @@ public class General extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
         SeleccionarArchivo newWin = new SeleccionarArchivo();
         newWin.setVisible(true);
-        this.dispose(); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cargarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void selec_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selec_usuarioActionPerformed
         Usuarios newWin = new Usuarios();
         newWin.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_selec_usuarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         Funciones funcion = new Funciones();
 //        funcion.actualizarTexto(clientes, restaurantes, pedidos, rutas);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,13 +208,13 @@ public class General extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizar;
+    private javax.swing.JButton cargar;
     private javax.swing.JLabel image1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostrar;
+    private javax.swing.JButton recorrer;
+    private javax.swing.JButton selec_usuario;
     // End of variables declaration//GEN-END:variables
 }

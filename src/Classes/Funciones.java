@@ -18,14 +18,15 @@ import javax.swing.JOptionPane;
  */
 public class Funciones {
 
-    String line;
-    String clientes_txt;
-    ListaClientes ListaDeClientes = new ListaClientes();
-    ListaRestaurantes ListaDeRestaurantes = new ListaRestaurantes();
-    ListaPedidos ListaDePedidos = new ListaPedidos();
+    public GrafoMA grafoGuardado;
+    public ListaClientes clientesGuardado;
+    public ListaRestaurantes restaurantesGuardado;
+    public ListaPedidos pedidosGuardado;
 
     public Funciones() {
-
+        this.clientesGuardado = new ListaClientes();
+        this.restaurantesGuardado = new ListaRestaurantes();
+        this.pedidosGuardado = new ListaPedidos();
     }
 
     public void actualizarTexto(ListaClientes clientes, ListaRestaurantes restaurantes, ListaPedidos pedidos, GrafoMA rutas) {
@@ -66,7 +67,7 @@ public class Funciones {
                 jf.showOpenDialog(null);
                 File archivo = jf.getSelectedFile();
                 String ruta = archivo.getAbsolutePath();
-                try ( PrintWriter pw = new PrintWriter(ruta)) {
+                try (PrintWriter pw = new PrintWriter(ruta)) {
                     pw.print(newTxt);
                 }
                 JOptionPane.showMessageDialog(null, "Actualización exitosa.");
@@ -86,228 +87,78 @@ public class Funciones {
         frame.setIcon(scaledIcon);
     }
 
-    public void lecturaArchivo(String rutaCarga) {
+    public void cargarArchivo() {
+        String info_txt = "";
+        JFileChooser jf = new JFileChooser();
+        jf.showOpenDialog(null);
+        File archivo = jf.getSelectedFile();
         try {
-            File file = new File(rutaCarga);
-            FileReader fr = new FileReader(file);
+            FileReader fr = new FileReader(archivo);
             BufferedReader br = new BufferedReader(fr);
+            String line;
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
-                    clientes_txt += line + "\n";
-
+                    info_txt += line + "\n";
                 }
             }
         } catch (Exception e) {
-
+            JOptionPane.showMessageDialog(null, "Error de lectura");
         }
-        String[] splitRestaurantes = clientes_txt.split("Clientes");
-
-        String[] splitPedidos = splitRestaurantes[1].split("Pedidos");
-
-        String[] splitRutas = splitPedidos[1].split("Rutas");
-
-        String[] splitFinal = splitRestaurantes[0].split("Restaurantes");
-
-        /*System.out.println(splitFinal[1]); //Restaurante
-
-        System.out.println(splitPedidos[0]); //Clientes
-
-        System.out.println(splitRutas[0]); //Pedidos
-
-        System.out.println(splitRutas[1]); //Rutas*/
-
-        Funciones test = new Funciones();
-
-        test.crearClientes(splitPedidos[0]);
-        System.out.println("\n");
-        test.crearRestaurantes(splitFinal[1]);
-        System.out.println("\n");
-        test.crearPedidos(splitRutas[0]);
-        System.out.println("\n");
-        test.crearRutas(splitRutas[1]);
-
-    }
-
-    public void crearClientes(String clientes) {
-        Funciones contar = new Funciones();
-        int clientesIteracion = contar.countLines(clientes);
-        String print = clientes.replace(",", "\n");
-        //System.out.println(print);
-        //for (int i = 0; i <= clientesIteracion; i++) {
-         //   String e = String.valueOf(i);
-            print = print.replace(".", "");
-       // }
-        try ( BufferedReader bufReader = new BufferedReader(new StringReader(print))) {
-            String line;
-            int contador = 0;
-            int parametro1 = 0;
-            int contador2 = 0;
-            String parametro2 = "";
-            String parametro3 = "";
-            String parametro4 = "";
-         
-            
-            while ((line = bufReader.readLine()) != null) {
-                if(contador == 1){
-                     parametro1 = Integer.parseInt(line);
-                     System.out.println(parametro1);
-                }
-                if(contador != 0 && contador == 2){
-                    parametro2 = line;
-                     System.out.println(parametro2);
-                }
-                if(contador != 0 && contador == 3){
-                    parametro3 = line;
-                    System.out.println(parametro3);
-                }
-                if(contador != 0 && contador == 4){
-                    ++contador2;
-                    parametro4 = line;
-                    Cliente nuevoCliente = new Cliente(parametro1, parametro2, parametro3, parametro4);
-                    ListaDeClientes.addAtTheEnd(nuevoCliente);
-                    contador = 0;
-                    System.out.println(parametro4);
-                }
-              //  System.out.println(contador + ") " +  line);
-                ++contador;
+        if (!"".equals(info_txt)) {
+            String[] arr_txt = info_txt.split("\n");
+            int linea = 1;
+            while (!arr_txt[linea].equals("Clientes")) {
+                String[] atributos = arr_txt[linea].split(",");
+                Restaurante newRest = new Restaurante(atributos[0].charAt(0), atributos[1], atributos[2]);
+                this.restaurantesGuardado.addAtTheEnd(newRest);
+                linea += 1;
             }
-        } catch (Exception e) {
-        }
-    }
-    
-        public void crearRestaurantes(String restaurantes) {
-        Funciones contarRestaurantes = new Funciones();
-        int RestauranteIteracion = contarRestaurantes.countLines(restaurantes);
-        String printRestaurantes = restaurantes.replace(",", "\n");
-            System.out.println(printRestaurantes);
-        try ( BufferedReader bufReaderRestuarante = new BufferedReader(new StringReader(printRestaurantes))) {
-            String lineR;
-            int contador = 0;
-            String parametro1 = "";
-            int contador2 = 0;
-            String parametro2 = "";
-            String parametro3 = "";
-            String parametro4 = "";
-         
-            
-            while ((lineR = bufReaderRestuarante.readLine()) != null) {
-                
-                if(contador == 1){
-                     parametro1 = lineR;
-                     System.out.println(parametro1);
-                }
-                if(contador != 0 && contador == 2){
-                    parametro2 = lineR;
-                     System.out.println(parametro2);
-                }
-                if(contador != 0 && contador == 3){
-                    ++contador2;
-                    parametro4 = lineR;
-                    Restaurante nuevoRestaurante = new Restaurante(parametro1.charAt(0), parametro2, parametro3);
-                    ListaDeRestaurantes.addAtTheEnd(nuevoRestaurante);
-                    contador = 0;
-                    System.out.println(parametro4);
-                }
-              //  System.out.println(contador + ") " +  line);
-                ++contador;
-                ++contador2;
-                if(contador2 == RestauranteIteracion){
-                break;
-                }
+            linea += 1;
+            while (!arr_txt[linea].equals("Pedidos")) {
+                String[] atributos = arr_txt[linea].split(",");
+                Cliente newClie = new Cliente(Integer.parseInt(atributos[0]), atributos[1], atributos[2], atributos[3]);
+                this.clientesGuardado.addAtTheEnd(newClie);
+                linea += 1;
             }
-        } catch (Exception e) {
-        }
-    }
-        
-            public void crearPedidos(String pedidos) {
-        String printPedidos = pedidos.replace(",", "\n");
-        System.out.println(printPedidos);
-        Funciones contarPedidos = new Funciones();
-        int pedidosIteracion = contarPedidos.countLines(pedidos);
-        try ( BufferedReader bufReaderRestuarante = new BufferedReader(new StringReader(printPedidos))) {
-            String lineR;
-            int contador = 0;
-            String parametro1 = "";
-            int contador2 = 0;
-            String parametro2 = "";
-            String parametro3 = "";
-            String parametro4 = "";
-         
-            
-            while ((lineR = bufReaderRestuarante.readLine()) != null) {
-                if(contador2 == pedidosIteracion){
-                break;
-                }
-                if(contador == 1){
-                     parametro1 = lineR;
-                     System.out.println(parametro1);
-                }
-                if(contador != 0 && contador == 2){
-                    parametro2 = lineR;
-                     System.out.println(parametro2);
-                }
-
-                if(contador != 0 && contador == 3){
-                    ++contador2;
-                    parametro4 = lineR;
-                    Pedido nuevoPedido = new Pedido(parametro1, parametro2, parametro3);
-                    ListaDePedidos.addAtTheEnd(nuevoPedido);
-                    contador = 0;
-                    System.out.println(parametro4);
-                }
-              //  System.out.println(contador + ") " +  line);
-                ++contador;
-                ++contador2;
+            linea += 1;
+            while (!arr_txt[linea].equals("Rutas")) {
+                String[] atributos = arr_txt[linea].split(",");
+                Pedido newPedi = new Pedido(atributos[0], atributos[1], atributos[2]);
+                this.pedidosGuardado.addAtTheEnd(newPedi);
+                linea++;
             }
-        } catch (Exception e) {
-        }
-    }
-    public void crearRutas(String rutas) {
-        String printRutas = rutas.replace(",", "\n");
-        System.out.println(printRutas);
-        Funciones contarRutas = new Funciones();
-        int pedidosIteracion = contarRutas.countLines(rutas);
-        try ( BufferedReader bufReaderRutas = new BufferedReader(new StringReader(printRutas))) {
-            String lineR;
-            int contador = 0;
-            String parametro1 = "";
-            int contador2 = 0;
-            int parametro2 = 0;
-            int parametro3 = 0;
-     
-         
-            
-            while ((lineR = bufReaderRutas.readLine()) != null) {
-                if(contador2 == pedidosIteracion){
-                break;
+            linea += 1;
+            int tamaño = clientesGuardado.size + restaurantesGuardado.size;
+            this.grafoGuardado = new GrafoMA(tamaño);
+            for (int i = linea; i < arr_txt.length; i++) {
+                String[] atributos = arr_txt[i].split(",");
+                int firstIndex;
+                int secondIndex;
+                try {
+                    firstIndex = Integer.parseInt(atributos[0]) - 1;
+                } catch (Exception e) {
+                    firstIndex = this.clientesGuardado.size;
+                    Restaurante temp = this.restaurantesGuardado.first;
+                    while (temp.key != atributos[0].charAt(0)) {
+                        firstIndex += 1;
+                        temp = temp.next;
+                    }
                 }
-                if(contador == 1){
-                     parametro1 = lineR;
-                     System.out.println(parametro1);
+                try {
+                    secondIndex = Integer.parseInt(atributos[1]) - 1;
+                } catch (Exception e) {
+                    secondIndex = this.clientesGuardado.size;
+                    Restaurante temp = this.restaurantesGuardado.first;
+                    while (temp.key != atributos[1].charAt(0)) {
+                        secondIndex += 1;
+                        temp = temp.next;
+                    }
                 }
-                if(contador != 0 && contador == 2){
-                     parametro2 = Integer.parseInt(lineR);
-                     System.out.println(parametro2);
-                }
-
-                if(contador != 0 && contador == 3){
-                    ++contador2;
-                    parametro3 = Integer.parseInt(lineR);
-                    Pedido nuevoRutas = new Pedido(parametro1, parametro2, parametro3);
-                    ListaDePedidos.addAtTheEnd(nuevoPedido);
-                    contador = 0;
-                    System.out.println(parametro4);
-                }
-              //  System.out.println(contador + ") " +  line);
-                ++contador;
-                ++contador2;
+                this.grafoGuardado.añadirVertice(firstIndex, secondIndex, Integer.parseInt(atributos[2]));
             }
-        } catch (Exception e) {
+        } else {
+            JOptionPane.showMessageDialog(null, "El archivo esta vacío");
         }
-    }
 
-    public int countLines(String str) {
-        String[] lines = str.split("\r\n|\r|\n");
-        return lines.length;
     }
 }
