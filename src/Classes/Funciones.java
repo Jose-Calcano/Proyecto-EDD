@@ -31,39 +31,33 @@ public class Funciones {
         this.full = false;
     }
 
-    public void actualizarTexto(ListaClientes clientes, ListaRestaurantes restaurantes, ListaPedidos pedidos, GrafoMA rutas) {
-        if (!(clientes.isEmpty() || restaurantes.isEmpty() || rutas.isEmpty() || pedidos.isEmpty())) {
+    public void actualizarTexto() {
+        if (!(this.clientesGuardado.isEmpty() || this.restaurantesGuardado.isEmpty() || this.grafoGuardado.isEmpty() || this.pedidosGuardado.isEmpty())) {
             try {
                 String newTxt = "";
                 newTxt += "Restaurantes \n";
-                for (int i = 0; i < restaurantes.size; i++) {
-                    Restaurante temp = restaurantes.first;
-                    while (temp != null) {
-                        String newLine = Character.toString(temp.key) + "," + temp.name + "," + temp.menu + "\n";
-                        newTxt += newLine;
-                        temp = temp.next;
-                    }
+                Restaurante temp1 = this.restaurantesGuardado.first;
+                while (temp1 != null) {
+                    String newLine = Character.toString(temp1.key) + "," + temp1.name + "," + temp1.menu + "\n";
+                    newTxt += newLine;
+                    temp1 = temp1.next;
                 }
                 newTxt += "Clientes \n";
-                for (int i = 0; i < clientes.size; i++) {
-                    Cliente temp = clientes.first;
-                    while (temp != null) {
-                        String newLine = Integer.toString(temp.key) + "," + temp.firstName + "," + temp.lastName + "," + temp.ci + "\n";
-                        newTxt += newLine;
-                        temp = temp.next;
-                    }
+                Cliente temp2 = this.clientesGuardado.first;
+                while (temp2 != null) {
+                    String newLine = Integer.toString(temp2.key) + "," + temp2.firstName + "," + temp2.lastName + "," + temp2.ci + "\n";
+                    newTxt += newLine;
+                    temp2 = temp2.next;
                 }
                 newTxt += "Pedidos \n";
-                for (int i = 0; i < pedidos.size; i++) {
-                    Pedido temp = pedidos.first;
-                    while (temp != null) {
-                        String newLine = temp.llegada + "," + temp.salida + "," + temp.pedido + "\n";
-                        newTxt += newLine;
-                        temp = temp.next;
-                    }
+                Pedido temp3 = this.pedidosGuardado.first;
+                while (temp3 != null) {
+                    String newLine = temp3.llegada + "," + temp3.salida + "," + temp3.pedido + "\n";
+                    newTxt += newLine;
+                    temp3 = temp3.next;
                 }
                 newTxt += "Rutas \n";
-                String textoRutas = rutas.rutasString(clientes, restaurantes);
+                String textoRutas = this.grafoGuardado.rutasString(clientesGuardado, restaurantesGuardado);
                 newTxt += textoRutas;
                 JFileChooser jf = new JFileChooser();
                 jf.showOpenDialog(null);

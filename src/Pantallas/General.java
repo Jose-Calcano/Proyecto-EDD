@@ -168,9 +168,6 @@ public class General extends javax.swing.JFrame {
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
         this.a.cargarArchivo();
-        JOptionPane.showMessageDialog(null, String.valueOf(a.restaurantesGuardado.size));
-        JOptionPane.showMessageDialog(null, String.valueOf(a.clientesGuardado.size));
-        JOptionPane.showMessageDialog(null, a.pedidosGuardado.size);
     }//GEN-LAST:event_cargarActionPerformed
 
     private void selec_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selec_usuarioActionPerformed
@@ -184,7 +181,7 @@ public class General extends javax.swing.JFrame {
     }//GEN-LAST:event_selec_usuarioActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        this.a.actualizarTexto(a.clientesGuardado, a.restaurantesGuardado, a.pedidosGuardado, a.grafoGuardado);
+        this.a.actualizarTexto();
     }//GEN-LAST:event_actualizarActionPerformed
 
     /**
