@@ -160,4 +160,8 @@ public class Funciones {
         }
 
     }
+    
+    public void mostrarGrafo() {
+        
+    }
 }

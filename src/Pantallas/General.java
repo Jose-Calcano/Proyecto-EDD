@@ -83,6 +83,11 @@ public class General extends javax.swing.JFrame {
         mostrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         mostrar.setForeground(new java.awt.Color(0, 0, 0));
         mostrar.setText("Mostrar grafo");
+        mostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarActionPerformed(evt);
+            }
+        });
 
         recorrer.setBackground(new java.awt.Color(255, 102, 0));
         recorrer.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -181,8 +186,20 @@ public class General extends javax.swing.JFrame {
     }//GEN-LAST:event_selec_usuarioActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        this.a.actualizarTexto();
+        if (a.full) {
+            this.a.actualizarTexto();
+        } else {
+            JOptionPane.showMessageDialog(null, "Primero debe cargar un archivo al sistema");
+        }
     }//GEN-LAST:event_actualizarActionPerformed
+
+    private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
+        if (a.full) {
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Primero debe cargar un archivo al sistema");
+        }
+    }//GEN-LAST:event_mostrarActionPerformed
 
     /**
      * @param args the command line arguments

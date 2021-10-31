@@ -5,17 +5,21 @@
  */
 package Pantallas;
 
+import Classes.Funciones;
+
 /**
  *
  * @author juanc
  */
 public class Driver extends javax.swing.JFrame {
-
+    Funciones data;
     /**
      * Creates new form Driver
+     * @param data
      */
-    public Driver() {
+    public Driver(Funciones data) {
         initComponents();
+        this.data = data;
     }
 
     /**

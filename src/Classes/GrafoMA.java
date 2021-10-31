@@ -140,7 +140,7 @@ public class GrafoMA {
         }
         return result;
     }
-
+    
     public static void main(String[] args) {
         GrafoMA graph = new GrafoMA(5);
         graph.añadirVertice(0, 1, 4);
