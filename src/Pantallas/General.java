@@ -6,22 +6,30 @@
 package Pantallas;
 
 import Classes.Funciones;
-
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author juanc
  */
 public class General extends javax.swing.JFrame {
-    
+
+    Funciones a = new Funciones();
+
     /**
      * Creates new form General
      */
     public General() {
         initComponents();
-        Funciones a = new Funciones();
         a.scaleImage(image1, "Frutas.jpg");
     }
+
+    public General(Funciones data) {
+        initComponents();
+        a.scaleImage(image1, "Frutas.jpg");
+        this.a = data;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -159,19 +167,24 @@ public class General extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
-        SeleccionarArchivo newWin = new SeleccionarArchivo();
-        newWin.setVisible(true);
+        this.a.cargarArchivo();
+        JOptionPane.showMessageDialog(null, String.valueOf(a.restaurantesGuardado.size));
+        JOptionPane.showMessageDialog(null, String.valueOf(a.clientesGuardado.size));
+        JOptionPane.showMessageDialog(null, a.pedidosGuardado.size);
     }//GEN-LAST:event_cargarActionPerformed
 
     private void selec_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selec_usuarioActionPerformed
-        Usuarios newWin = new Usuarios();
-        newWin.setVisible(true);
-        this.dispose();
+        if (a.full) {
+            Usuarios newWin = new Usuarios(this.a);
+            newWin.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Primero debe cargar un archivo al sistema");
+        }
     }//GEN-LAST:event_selec_usuarioActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        Funciones funcion = new Funciones();
-//        funcion.actualizarTexto(clientes, restaurantes, pedidos, rutas);
+        this.a.actualizarTexto(a.clientesGuardado, a.restaurantesGuardado, a.pedidosGuardado, a.grafoGuardado);
     }//GEN-LAST:event_actualizarActionPerformed
 
     /**

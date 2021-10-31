@@ -5,17 +5,20 @@
  */
 package Pantallas;
 
+import Classes.Funciones;
+
 /**
  *
  * @author juanc
  */
 public class Usuarios extends javax.swing.JFrame {
-
+    Funciones data;
     /**
      * Creates new form Usuarios
      */
-    public Usuarios() {
+    public Usuarios(Funciones data) {
         initComponents();
+        this.data = data;
     }
 
     /**

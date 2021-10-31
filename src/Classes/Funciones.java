@@ -22,11 +22,13 @@ public class Funciones {
     public ListaClientes clientesGuardado;
     public ListaRestaurantes restaurantesGuardado;
     public ListaPedidos pedidosGuardado;
+    public boolean full;
 
     public Funciones() {
         this.clientesGuardado = new ListaClientes();
         this.restaurantesGuardado = new ListaRestaurantes();
         this.pedidosGuardado = new ListaPedidos();
+        this.full = false;
     }
 
     public void actualizarTexto(ListaClientes clientes, ListaRestaurantes restaurantes, ListaPedidos pedidos, GrafoMA rutas) {
@@ -71,6 +73,7 @@ public class Funciones {
                     pw.print(newTxt);
                 }
                 JOptionPane.showMessageDialog(null, "Actualización exitosa.");
+                this.full = true;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error en el catch");
             }
@@ -156,6 +159,7 @@ public class Funciones {
                 }
                 this.grafoGuardado.añadirVertice(firstIndex, secondIndex, Integer.parseInt(atributos[2]));
             }
+            JOptionPane.showMessageDialog(null, "Archivo cargado en el sistema.");
         } else {
             JOptionPane.showMessageDialog(null, "El archivo esta vacío");
         }

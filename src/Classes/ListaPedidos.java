@@ -10,9 +10,9 @@ package Classes;
  * @author juanc
  */
 public class ListaPedidos {
-    Pedido first;
-    Pedido last;
-    int size;
+    public Pedido first;
+    public Pedido last;
+    public int size;
     
     public ListaPedidos() {
         this.first = null;

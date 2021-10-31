@@ -6,9 +6,9 @@ package Classes;
  * @author juanc
  */
 public class ListaClientes {
-    Cliente first;
-    Cliente last;
-    int size;
+    public Cliente first;
+    public Cliente last;
+    public int size;
     
     public ListaClientes() {
         this.first = null;

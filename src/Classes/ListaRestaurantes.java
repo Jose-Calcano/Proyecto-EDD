@@ -11,9 +11,9 @@ package Classes;
  */
 public class ListaRestaurantes {
 
-    Restaurante first;
-    Restaurante last;
-    int size;
+    public Restaurante first;
+    public Restaurante last;
+    public int size;
 
     public ListaRestaurantes() {
         this.first = null;

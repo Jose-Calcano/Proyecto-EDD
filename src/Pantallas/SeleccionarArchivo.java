@@ -183,7 +183,7 @@ public class SeleccionarArchivo extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       String rutaCarga = ruta.getText();    
       Funciones funcion = new Funciones();
-      funcion.lecturaArchivo(rutaCarga);
+//      funcion.cargarArchivo(rutaCarga);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
