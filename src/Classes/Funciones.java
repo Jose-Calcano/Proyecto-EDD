@@ -200,4 +200,19 @@ public class Funciones {
         String[] arr = temp.menu.split("/");
         return arr;
     }
+    
+    public int transformToValidIndex(String key) {
+        int index;
+        try {
+            index = Integer.parseInt(key) - 1;
+        } catch (Exception e) {
+            Restaurante temp = this.restaurantesGuardado.first;
+            index = this.clientesGuardado.size;
+            while (!key.equals(Character.toString(temp.key))) {
+                index ++;
+                temp = temp.next;
+            }
+        }
+        return index;
+    }
 }
