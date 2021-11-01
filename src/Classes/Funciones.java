@@ -160,8 +160,37 @@ public class Funciones {
         }
 
     }
-    
+
     public void mostrarGrafo() {
-        
+
+    }
+
+    public String anchura(int nombreOrigen) {
+        Cola c = new Cola();
+        String cad = "";
+        int origen = this.grafoGuardado.matrizAdy[nombreOrigen];
+
+
+        if (origen != null) {
+            c.encolar(origen);
+            origen.setEstado(1);
+            while (c.isEmpty()  == false ) {
+            }
+            {
+                origen = buscarVertice(String.valueOf(c.getUltimo().toString().cartAt(0)));
+                for (i = origen.getRaizVer(); i != null; i = i.getSig()) {
+                    aux = buscarVertice(i.getNombre());
+                    if (aux.getEstado() == 0) {
+                        c.encolar(aux);
+                        aux.setEstado();
+                    }
+
+                }
+               cad += c.desencolar() + "->"; 
+            }
+            return cad;
+        }else{
+            return "No se encontro el vertice";
+        }
     }
 }
