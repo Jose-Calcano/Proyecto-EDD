@@ -7,9 +7,7 @@ package Pantallas;
 
 import Classes.Funciones;
 import Classes.Pedido;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.ListSelectionModel;
 
 /**
  *
@@ -73,6 +71,7 @@ public class Ordenar2 extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setBackground(new java.awt.Color(255, 102, 0));
