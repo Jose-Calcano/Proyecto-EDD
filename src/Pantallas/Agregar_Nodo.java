@@ -202,12 +202,15 @@ public class Agregar_Nodo extends javax.swing.JFrame {
              int b = Integer.parseInt(NuevoNodo2);
              int newKey = data.clientesGuardado.last.key;
              Cliente newClient = new Cliente(newKey + 1, this.nombre, this.apellido, this.ci);
-             data.clientesGuardado.addAtTheEnd(newClient);
              String rutas = data.grafoGuardado.rutasString(data.clientesGuardado, data.restaurantesGuardado);
-             rutas += jComboBox1.getSelectedItem() + "," + String.valueOf(newKey) + "," + NuevoNodo1 + "\n";
-             rutas += String.valueOf(newKey) + "," + jComboBox2.getSelectedItem() + "," + NuevoNodo2;
+             data.clientesGuardado.addAtTheEnd(newClient);
+             rutas += jComboBox1.getSelectedItem() + "," + String.valueOf(newKey + 1) + "," + NuevoNodo1 + "\n";
+             rutas += String.valueOf(newKey + 1) + "," + jComboBox2.getSelectedItem() + "," + NuevoNodo2;
              data.actualiarGrafo(rutas);
              JOptionPane.showMessageDialog(null, "Cliente añadido correctamente.");
+             ClienteWn newWin = new ClienteWn(this.data);
+             newWin.setVisible(true);
+             this.dispose();
          } catch (Exception e) {
              JOptionPane.showMessageDialog(null, "Error, las distancias colocadas no son validas.");
              ClienteWn newWin = new ClienteWn(this.data);
