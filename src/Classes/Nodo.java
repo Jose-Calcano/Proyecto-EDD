@@ -12,7 +12,7 @@ package Classes;
 public class Nodo {
 
     Object info;
-    NodoPila next;
+    Nodo next;
 
     public Nodo(Object info) {
         this.info = info;
