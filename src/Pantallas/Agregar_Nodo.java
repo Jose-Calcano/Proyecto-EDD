@@ -5,17 +5,34 @@
  */
 package Pantallas;
 
+import Classes.Cliente;
+import Classes.Funciones;
+import Classes.Restaurante;
+
 /**
  *
  * @author juanc
  */
 public class Agregar_Nodo extends javax.swing.JFrame {
-    NuevoCliente nuevoCliente;
+    Funciones data;
     /**
      * Creates new form Agregar_Nodo
      */
-    public Agregar_Nodo() {
+    public Agregar_Nodo(Funciones data) {
         initComponents();
+        this.data = data;
+        Cliente temp = data.clientesGuardado.first;
+        Restaurante temp1 = data.restaurantesGuardado.first;
+        while (temp != null) {
+            jComboBox1.addItem(String.valueOf(temp.key));
+            jComboBox2.addItem(String.valueOf(temp.key));
+            temp = temp.next;
+        }
+        while (temp1 != null) {
+            jComboBox1.addItem(Character.toString(temp1.key));
+            jComboBox2.addItem(Character.toString(temp1.key));
+            temp1 = temp1.next;
+        }
     }
 
     /**
@@ -46,9 +63,7 @@ public class Agregar_Nodo extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Indique el primer nodo de referencia");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel1.setText("Indique el primer nodo de referencia (entrada)");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -56,9 +71,7 @@ public class Agregar_Nodo extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Indique el segundo nodo de referencia");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel3.setText("Indique el segundo nodo de referencia (salida)");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -106,7 +119,7 @@ public class Agregar_Nodo extends javax.swing.JFrame {
                                 .addComponent(Distancia1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(0, 140, Short.MAX_VALUE))))
+                                .addGap(0, 96, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

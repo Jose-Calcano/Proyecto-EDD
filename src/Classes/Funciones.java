@@ -65,13 +65,13 @@ public class Funciones {
                 try (PrintWriter pw = new PrintWriter(ruta)) {
                     pw.print(newTxt);
                 }
-                JOptionPane.showMessageDialog(null, "Actualizaci�n exitosa.");
+                JOptionPane.showMessageDialog(null, "Actualización exitosa.");
                 this.full = true;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error en el catch");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Error, una de las estructuras no tiene informaci�n");
+            JOptionPane.showMessageDialog(null, "Error, una de las estructuras no tiene información");
         }
     }
 
@@ -155,7 +155,7 @@ public class Funciones {
             JOptionPane.showMessageDialog(null, "Archivo cargado en el sistema.");
             this.full = true;
         } else {
-            JOptionPane.showMessageDialog(null, "El archivo esta vac�o");
+            JOptionPane.showMessageDialog(null, "El archivo esta vacío");
         }
 
     }
@@ -167,65 +167,5 @@ public class Funciones {
         }
         String[] arr = temp.menu.split("/");
         return arr;
-    }
-        public String anchura(int nombreOrigen) {
-        Cola c = new Cola();
-        String cad = "";
-        int[] origen = this.grafoGuardado.matrizAdy[nombreOrigen];
-
-
-        if (origen != null) {
-            c.encolar(origen);
-            origen.setEstado(1);
-            while (c.isEmpty() == false) {
-            }
-            {
-                origen = buscarVertice(String.valueOf(c.getUltimo().toString().cartAt(0)));
-                for (i = origen.getRaizVer(); i != null; i = i.getSig()) {
-                    aux = buscarVertice(i.getNombre());
-                    if (aux.getEstado() == 0) {
-                        c.encolar(aux);
-                        aux.setEstado();
-                    }
-
-                }
-                cad += c.desencolar() + "->";
-            }
-            return cad;
-        } else {
-            return "No se encontro el vertice";
-        }
-    }
-
-    public String profundidad(String nombreOrigen) {
-        Pila p = new Pila();
-        Pila auxiliar = new Pila();
-        String cad = "";
-        Vertice origen = buscarVertice(nombreOrigen);
-
-        if (origen != null) {
-            p.push(origen);
-            while (p.isEmpty() == false) {
-                origen = buscarVertice(String.valueOf(p.getRaiz().toString().charAt(0)));
-                if (origen.getEstado() == 0) {
-                    origen.setEstaod(1);
-                    cad += p.getRaiz() + "->";
-                }
-            }
-            p.pop();
-            for (i = origen.getRaizVer(); i != null; i = i.getSig()) {
-                aux = buscarVertice(i.getNombre());
-                if (aux.getEstado() == 0) {
-                    auxiliar.push(aux);
-                }
-            }
-            while (auxiliar.isEmpty() == false) {
-                p.push(auxiliar.pop());
-            }
-            return cad;
-            
-        } else {
-            return "No se encontro el vertice. ";
-        }
     }
 }
