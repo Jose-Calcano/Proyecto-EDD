@@ -13,6 +13,7 @@ public class GrafoMA {
     int[][] matrizAdy;
     int V;
     Cola queue = new Cola();
+    Pila stack = new Pila();
     static int[][] P;
     int INF = Integer.MAX_VALUE;
     
@@ -147,6 +148,46 @@ public class GrafoMA {
     }
 
     public void bfs(Nodo node) {
+        int contador = 0;
+        int valorI = 0;
+        int valorj = 0;
+        queue.encolar(node);
+        for (int i = 0; i < this.maxNodos; i++) {
+            for (int j = 0; j < this.maxNodos; j++) {
+                if (this.matrizAdy[i][j] == node.valorInt() && queue.buscarEnCola(node.valorInt()) == true) {
+                    Nodo nodoI = new Nodo(i);
+                    valorI = i;
+                    System.out.println(nodoI.valorInt());
+                    Nodo nodoj = new Nodo(j);
+                    System.out.println(nodoj.valorInt());
+                    valorj = j;
+                    ++contador;
+                    break;
+                }
+            }
+        }
+
+        while (queue.tamanoCola() < this.maxNodos) {
+            for (int l = 0; l < this.maxNodos; l++) {
+                for (int r = 0; r < this.maxNodos; r++) {
+                    if (this.matrizAdy[l][r] == valorI && queue.buscarEnCola(valorI) == false) {
+                        Nodo nodito = new Nodo(valorI);
+                        queue.encolar(nodito);
+                        valorI = r;
+                    }
+                    if (this.matrizAdy[l][r] == valorj && queue.buscarEnCola(valorj) == false) {
+                        Nodo noditoParte2 = new Nodo(valorj);
+                        queue.encolar(noditoParte2);
+                        valorj = l;
+                    }
+                }
+            }
+        }
+        queue.printearCola();
+        
+    }
+    
+        public void dfs(Nodo node) {
         int contador = 0;
         int valorI = 0;
         int valorj = 0;
