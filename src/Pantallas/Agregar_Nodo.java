@@ -8,6 +8,7 @@ package Pantallas;
 import Classes.Cliente;
 import Classes.Funciones;
 import Classes.Restaurante;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,12 +16,18 @@ import Classes.Restaurante;
  */
 public class Agregar_Nodo extends javax.swing.JFrame {
     Funciones data;
+    String nombre;
+    String apellido;
+    String ci;
     /**
      * Creates new form Agregar_Nodo
      */
-    public Agregar_Nodo(Funciones data) {
+    public Agregar_Nodo(Funciones data, String nombre, String apellido, String ci) {
         initComponents();
         this.data = data;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.ci = ci;
         Cliente temp = data.clientesGuardado.first;
         Restaurante temp1 = data.restaurantesGuardado.first;
         while (temp != null) {
@@ -190,6 +197,23 @@ public class Agregar_Nodo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          String NuevoNodo1 = Distancia1.getText();
          String NuevoNodo2 = Distancia2.getText();
+         try {
+             int a = Integer.parseInt(NuevoNodo1);
+             int b = Integer.parseInt(NuevoNodo2);
+             int newKey = data.clientesGuardado.last.key;
+             Cliente newClient = new Cliente(newKey + 1, this.nombre, this.apellido, this.ci);
+             data.clientesGuardado.addAtTheEnd(newClient);
+             String rutas = data.grafoGuardado.rutasString(data.clientesGuardado, data.restaurantesGuardado);
+             rutas += jComboBox1.getSelectedItem() + "," + String.valueOf(newKey) + "," + NuevoNodo1 + "\n";
+             rutas += String.valueOf(newKey) + "," + jComboBox2.getSelectedItem() + "," + NuevoNodo2;
+             data.actualiarGrafo(rutas);
+             JOptionPane.showMessageDialog(null, "Cliente añadido correctamente.");
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Error, las distancias colocadas no son validas.");
+             ClienteWn newWin = new ClienteWn(this.data);
+             newWin.setVisible(true);
+             this.dispose();
+         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
