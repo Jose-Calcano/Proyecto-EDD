@@ -195,7 +195,9 @@ public class General extends javax.swing.JFrame {
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         if (a.full) {
-            
+            Mostrar_grafo newWin = new Mostrar_grafo(this.a);
+            newWin.setVisible(true);
+            this.dispose();           
         } else {
             JOptionPane.showMessageDialog(null, "Primero debe cargar un archivo al sistema");
         }

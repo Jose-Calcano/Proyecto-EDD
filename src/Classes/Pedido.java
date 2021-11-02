@@ -17,4 +17,9 @@ public class Pedido {
         this.pedido = pedido;
         this.next = null;
     }
+    
+    public String getPedidoString() {
+        String res = this.llegada + "," + this.salida + "," + this.pedido;
+        return res;
+    }
 }
