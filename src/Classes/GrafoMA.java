@@ -10,7 +10,7 @@ public class GrafoMA {
 
     int maxNodos;
     int numVertices;
-    int[][] matrizAdy;
+    public int[][] matrizAdy;
     int V;
     Cola queue = new Cola();
     Pila stack = new Pila();
