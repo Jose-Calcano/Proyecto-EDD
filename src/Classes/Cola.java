@@ -68,7 +68,7 @@ public class Cola {
             for (int i = 0 ; i < size ; i++){
                 Nodo actual = head;
                 desencolar();
-                printDeCola += actual + ",";
+                printDeCola += actual.valorInt() + ",";
                 encolar(actual);
             }
             return printDeCola;

@@ -93,6 +93,11 @@ public class General extends javax.swing.JFrame {
         recorrer.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         recorrer.setForeground(new java.awt.Color(0, 0, 0));
         recorrer.setText("Recorrer grafo");
+        recorrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recorrerActionPerformed(evt);
+            }
+        });
 
         selec_usuario.setBackground(new java.awt.Color(255, 102, 0));
         selec_usuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -202,6 +207,16 @@ public class General extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Primero debe cargar un archivo al sistema");
         }
     }//GEN-LAST:event_mostrarActionPerformed
+
+    private void recorrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorrerActionPerformed
+        if (a.full) {
+            RecorrerGrafo newWin = new RecorrerGrafo(this.a);
+            newWin.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Primero debe cargar un archivo al sistema");
+        }
+    }//GEN-LAST:event_recorrerActionPerformed
 
     /**
      * @param args the command line arguments

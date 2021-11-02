@@ -210,7 +210,7 @@ public class GrafoMA {
                 }
             }
         }
-        queue.printearCola();
+        System.out.println(queue.printearCola());
     }
     
         public void dfs(int node) {
@@ -226,7 +226,7 @@ public class GrafoMA {
                     Nodo nodoj = new Nodo(j);
                     System.out.println(nodoj.valorInt());
                     valorj = j;
-                    ++contador;
+
                     break;
                 }
             }
