@@ -20,4 +20,7 @@ public class Nodo {
     public int valorInt(){
         return integer;
     }
+    public Nodo getSiguiente() {
+        return next;
+    }
 }

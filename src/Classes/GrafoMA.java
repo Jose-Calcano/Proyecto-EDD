@@ -15,7 +15,7 @@ public class GrafoMA {
     Cola queue = new Cola();
     Pila stack = new Pila();
     static int[][] P;
-    int INF = Integer.MAX_VALUE;
+    int INF = 9999;
     
 
     public GrafoMA(int n) {
@@ -184,17 +184,15 @@ public class GrafoMA {
             }
         }
         queue.printearCola();
-        
     }
     
-        public void dfs(Nodo node) {
-        int contador = 0;
+        public void dfs(int node) {
         int valorI = 0;
         int valorj = 0;
-        queue.encolar(node);
+        stack.apilar(node);
         for (int i = 0; i < this.maxNodos; i++) {
             for (int j = 0; j < this.maxNodos; j++) {
-                if (this.matrizAdy[i][j] == node.valorInt() && queue.buscarEnCola(node.valorInt()) == true) {
+                if (this.matrizAdy[i][j] == node && stack.buscar(node) == false) {
                     Nodo nodoI = new Nodo(i);
                     valorI = i;
                     System.out.println(nodoI.valorInt());
@@ -207,15 +205,14 @@ public class GrafoMA {
             }
         }
 
-        while (queue.tamanoCola() < this.maxNodos) {
+        while (stack.tamaño < this.maxNodos) {
             for (int l = 0; l < this.maxNodos; l++) {
                 for (int r = 0; r < this.maxNodos; r++) {
-                    if (this.matrizAdy[l][r] == valorI && queue.buscarEnCola(valorI) == false) {
-                        Nodo nodito = new Nodo(valorI);
-                        queue.encolar(nodito);
-                        valorI = r;
+                    if (this.matrizAdy[l][r] == valorI && stack.buscar(node) == false) {
+                        stack.apilar(valorI);
+                        valorI = l;
                     }
-                    if (this.matrizAdy[l][r] == valorj && queue.buscarEnCola(valorj) == false) {
+                    if (this.matrizAdy[l][r] == valorj && stack.buscar(node) == false) {
                         Nodo noditoParte2 = new Nodo(valorj);
                         queue.encolar(noditoParte2);
                         valorj = l;
@@ -265,20 +262,27 @@ public class GrafoMA {
 		}
 		System.out.println("\n");
 	}
-    
-    public int[][] cambioACero(int [][] M){
-            for (int i = 0; i < this.maxNodos; i++) {
+
+    public int[][] cambioACero(int[][] M) {
+        for (int i = 0; i < this.maxNodos; i++) {
             for (int vert2 = 0; vert2 < this.maxNodos; vert2++) {
-                  if (M[i][vert2] == 0) {
-                        M[i][vert2] = INF;
-                    }
+                if (M[i][vert2] == 0) {
+                    M[i][vert2] = INF;
                 }
             }
-            return M;
-    }
+        }
+        for (int i = 0; i < this.maxNodos; i++) {
+            for (int vert2 = 0; vert2 < this.maxNodos; vert2++) {
+                if (i == vert2) {
+                    M[i][vert2] = 0;
+                }
+            }
 
+        }
+        return M;
+    }
     public static void main(String[] args) {
-        GrafoMA graph = new GrafoMA(5);
+        /* GrafoMA graph = new GrafoMA(5);
         graph.añadirVertice(0, 1, 4);
         graph.añadirVertice(0, 2, 5);
         graph.añadirVertice(2, 1, 1);
@@ -287,9 +291,9 @@ public class GrafoMA {
         graph.añadirVertice(3, 4, 3);
         graph.añadirVertice(4, 0, 20);
         Nodo noditopart3 = new Nodo(4);
-        graph.bfs(noditopart3);
+        graph.bfs(noditopart3); */
         
-        /*         GrafoMA graph = new GrafoMA(5);
+        GrafoMA graph = new GrafoMA(5);
         graph.añadirVertice(0, 1, 4);
         graph.añadirVertice(0, 2, 5);
         graph.añadirVertice(2, 1, 1);
@@ -303,7 +307,7 @@ public class GrafoMA {
         System.out.println("Shortest Path Matrix.");
         graph.printMatrix(graph.FloydAlgo(graph.cambioACero(graph.matrizAdy)));
         System.out.println("Path Matrix");
-        graph.printMatrix(P); */
+        graph.printMatrix(P); 
     }
 
 }
