@@ -308,33 +308,5 @@ public class GrafoMA {
         }
         return M;
     }
-    public static void main(String[] args) {
-        /* GrafoMA graph = new GrafoMA(5);
-        graph.añadirVertice(0, 1, 4);
-        graph.añadirVertice(0, 2, 5);
-        graph.añadirVertice(2, 1, 1);
-        graph.añadirVertice(1, 3, 4);
-        graph.añadirVertice(1, 4, 10);
-        graph.añadirVertice(3, 4, 3);
-        graph.añadirVertice(4, 0, 20);
-        Nodo noditopart3 = new Nodo(4);
-        graph.bfs(noditopart3); */
-        
-        GrafoMA graph = new GrafoMA(5);
-        graph.añadirVertice(0, 1, 4);
-        graph.añadirVertice(0, 2, 5);
-        graph.añadirVertice(2, 1, 1);
-        graph.añadirVertice(1, 3, 4);
-        graph.añadirVertice(1, 4, 10);
-        graph.añadirVertice(3, 4, 3);
-        graph.añadirVertice(4, 0, 20);
-        P = new int[graph.maxNodos][graph.maxNodos];
-        System.out.println("Matrix to find the shortest path of.");
-        graph.printMatrix(graph.cambioACero(graph.matrizAdy));
-        System.out.println("Shortest Path Matrix.");
-        graph.printMatrix(graph.FloydAlgo(graph.cambioACero(graph.matrizAdy)));
-        System.out.println("Path Matrix");
-        graph.printMatrix(P); 
-    }
 
 }
