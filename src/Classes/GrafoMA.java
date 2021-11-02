@@ -23,11 +23,19 @@ public class GrafoMA {
         this.numVertices = 0;
         this.matrizAdy = new int[n][n];
     }
-
+    /**
+     * Description: revisa si el grafo esta vacio
+     * @return true si esta vacio, false si no lo esta
+     */
     public boolean isEmpty() {
         return numVertices == 0;
     }
-
+    /**
+     * Description: Añade un vertice al grafo
+     * @param i indice del primer vertice (vertical)
+     * @param j indice del segundo vertice (horizontal)
+     * @param value distancia entre los vertices
+     */
     public void añadirVertice(int i, int j, int value) {
         if (matrizAdy[i][j] != 0) {
             matrizAdy[i][j] = value;
@@ -36,7 +44,11 @@ public class GrafoMA {
             numVertices += 1;
         }
     }
-
+    /**
+     * Description: Elimina un vertice del grafo
+     * @param i indice del primer vertice (vertical)
+     * @param j indice del segundo vertice (horizontal)
+     */
     public void eliminarVertice(int i, int j) {
         if (matrizAdy[i][j] != 0) {
             matrizAdy[i][j] = 0;
@@ -45,7 +57,12 @@ public class GrafoMA {
             JOptionPane.showMessageDialog(null, "No hay un vertice en esta posición.");
         }
     }
-
+    /**
+     * Description: Crea el String de rutas con el formato del txt a partir de las listas
+     * @param clientes lista de clientes
+     * @param restaurantes lista de restaurantes
+     * @return String con todas las rutas del grafo en formate del txt
+     */
     public String rutasString(ListaClientes clientes, ListaRestaurantes restaurantes) {
         String rutas = "";
         if (!this.isEmpty()) {
@@ -89,7 +106,12 @@ public class GrafoMA {
         return rutas;
 
     }
-
+    /**
+     * Description: Obtiene el valor minimo en el array de distancias de Dijkstra
+     * @param revisados array de los nodos ya revisados (definitivos)
+     * @param key array de las distancias
+     * @return el indice del vertice de la distancia mínima
+     */
     public int getMinimumVertex(boolean[] revisados, int[] key) {
         int minKey = Integer.MAX_VALUE;
         int vertex = -1;
@@ -101,7 +123,12 @@ public class GrafoMA {
         }
         return vertex;
     }
-
+    /**
+     * Description: Genera un string con los indices del grafo de la ruta más corta entre dos indices
+     * @param origenIndex indice del nodo origen para buscar la ruta
+     * @param destinoIndex indice del nodo destino para llegar con la busqueda
+     * @return Un String con los indices del grafo correspondientes a la ruta mas corta
+     */
     public String rutaMasCortaDijkstra(int origenIndex, int destinoIndex) {
         boolean[] spt = new boolean[this.maxNodos];
         int[] distance = new int[this.maxNodos];

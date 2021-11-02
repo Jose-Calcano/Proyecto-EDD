@@ -20,15 +20,24 @@ public class Cola {
         this.head = this.tail = null;
         this.size = 0;
     }
-
+    /**
+     * Description: Revisa si la cola esta vacia
+     * @return true si esta vacia, false si no lo esta
+     */
     public boolean isEmpty() {
         return head == null;
     }
-
+    /**
+     * Description: vacia la cola
+     */
     public void empty() {
         this.head = this.tail = null;
         this.size = 0;
     }
+    /**
+     * Description: Añade un nodo a la cola de la Cola
+     * @param nuevo el nodo a añadir
+     */
     public void encolar(Nodo nuevo){
         if (this.isEmpty()){
             head = tail = nuevo;
@@ -37,7 +46,9 @@ public class Cola {
         }
         size++;
     } 
-    
+    /**
+     * Description: Elimina el elemento de la cola
+     */
     public void desencolar(){
         if (this.isEmpty()){
             System.out.println("La cola esta vacio. ");
@@ -47,6 +58,10 @@ public class Cola {
            size--;
         }
     }
+    /**
+     * Description: Genera un string con los elementos de la cola
+     * @return El string de elementos
+     */
     public String printearCola(){
         if(!this.isEmpty()){
             String printDeCola = "";
@@ -60,10 +75,18 @@ public class Cola {
         }
         return null;
     }
+    /**
+     * Description: Regresa el tamaño de la cola
+     * @return el tamaño como entero
+     */
     public int tamanoCola(){
         return size;
     }
-
+    /**
+     * Description: Revisa si un nodo con el elemento "numerito" esta en la cola
+     * @param numerito el elemento del nodo
+     * @return true si se encuentra en la cola, false si no se encuentra en ella
+     */
     public boolean buscarEnCola(int numerito) {
         boolean boleano = false;
         for (int i = 0; i < size; i++) {

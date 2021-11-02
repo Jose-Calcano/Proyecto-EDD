@@ -17,9 +17,17 @@ public class Nodo {
         this.integer = integer;
         this.next = null;
     }
+    /**
+     * Description: regresa el valor del integer
+     * @return el valor de integer
+     */
     public int valorInt(){
         return integer;
     }
+    /**
+     * Description: regresa el valor del siguiente nodo
+     * @return el siguiente nodo
+     */
     public Nodo getSiguiente() {
         return next;
     }

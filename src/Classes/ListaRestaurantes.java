@@ -20,16 +20,24 @@ public class ListaRestaurantes {
         this.last = null;
         this.size = 0;
     }
-
+    /**
+     * Description: revisa si la lista esta vacia
+     * @return true si esta vacia, false si no lo esta
+     */
     public boolean isEmpty() {
         return null == this.first;
     }
-
+    /**
+     * Description: vacia la lista
+     */
     public void empty() {
         this.first = this.last = null;
         this.size = 0;
     }
-
+    /**
+     * Description: Añade un restaurante al final de la lista
+     * @param newRestaurante el nuevo restaurante que añadir
+     */
     public void addAtTheEnd(Restaurante newRestaurante) {
         if (this.isEmpty()) {
             first = last = newRestaurante;
@@ -39,7 +47,11 @@ public class ListaRestaurantes {
         }
         this.size++;
     }
-
+    /**
+     * Description: Busca el valor de indice para el grafo de la key dada
+     * @param key key del restaurante
+     * @return numero de indice correspondiente en el grafo
+     */
     public int getNumOfRestaurant(char key) {
         Restaurante temp = this.first;
         int count = 1;

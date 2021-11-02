@@ -28,7 +28,10 @@ public class Restaurante {
     public void addDish(String dish) {
         this.menu += "/" + dish;
     }
-    
+    /**
+     * Description: removes a dish from the menu
+     * @param dish the name of the dish
+     */
     public void removeDish(String dish) {
         this.menu = menu.replaceAll("/" + dish, "");
     }

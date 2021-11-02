@@ -18,31 +18,45 @@ public class Pila {
         this.tamaño = 0;
         this.cima = null;
     }
-
+    /**
+     * Description: Destruye la pila
+     */
     public void destructor() {
         while (cima != null) {
             this.cima = cima.next;
         }
         this.tamaño = 0;
     }
-
+    /**
+     * Description: Comprueba si la pila esta vacia
+     * @return true si esta vacia, false si no lo esta
+     */
     public boolean esVacio() {
         return tamaño == 0;
     }
-
+    /**
+     * Description: añade un nodo con s a la cima de la pila
+     * @param s info del nodo
+     */
     public void apilar(int s ) {
         Nodo newNode = new Nodo(s);
         newNode.next = this.cima;
         this.cima = newNode;
         this.tamaño++;
     }
-
+    /**
+     * Description: Elimina el nodo de la cima de la pila
+     */
     public void desapilar() {
         this.cima = this.cima.next;
         this.tamaño--;
     }
 
-    
+    /**
+     * Description: Busca si un elemento se encuentra en la pila
+     * @param referencia Info del nodo buscado
+     * @return true si esta en la pila, false si no lo esta
+     */
     public boolean buscar(int referencia){
         // Crea una copia de la pila.
         Nodo aux = cima;

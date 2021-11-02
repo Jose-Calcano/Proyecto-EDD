@@ -29,7 +29,9 @@ public class Funciones {
         this.pedidosGuardado = new ListaPedidos();
         this.full = false;
     }
-
+    /**
+     * Description: Actualiza el texto del txt con la información almacenada en los atributos
+     */
     public void actualizarTexto() {
         if (!(this.clientesGuardado.isEmpty() || this.restaurantesGuardado.isEmpty() || this.grafoGuardado.isEmpty() || this.pedidosGuardado.isEmpty())) {
             try {
@@ -74,7 +76,11 @@ public class Funciones {
             JOptionPane.showMessageDialog(null, "Error, una de las estructuras no tiene información");
         }
     }
-
+    /**
+     * Description: Acomida el tamaño de una imagen ubicada en "test/Resources" al tamaño de un label
+     * @param frame Label que tiene el tamaño deseado
+     * @param imgName el nombre de la imagen
+     */
     public void scaleImage(JLabel frame, String imgName) {
         ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Test/Resources/" + imgName));
         Image img = icon.getImage();
@@ -82,7 +88,9 @@ public class Funciones {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         frame.setIcon(scaledIcon);
     }
-
+    /**
+     * Description: Escoge un archivo txt y carga sus datos en los atributos de la clase
+     */
     public void cargarArchivo() {
         String info_txt = "";
         JFileChooser jf = new JFileChooser();
@@ -163,7 +171,10 @@ public class Funciones {
         }
 
     }
-
+    /**
+     * Description: Actualiza el valor del grafo atributo en base a una serie de rutas dadas de la forma del txt
+     * @param nuevasRutas String con las rutas (misma forma del txt)
+     */
     public void actualiarGrafo(String nuevasRutas) {
         int tamaño = clientesGuardado.size + restaurantesGuardado.size;
         this.grafoGuardado = new GrafoMA(tamaño);
@@ -195,7 +206,11 @@ public class Funciones {
             this.grafoGuardado.añadirVertice(firstIndex, secondIndex, Integer.parseInt(atributos[2]));
         }
     }
-
+    /**
+     * Description: Crea un array con los platos de un restaurante
+     * @param restKey la key del restaurante deseado
+     * @return el array de los platos
+     */
     public String[] arrayDePlatos(String restKey) {
         Restaurante temp = this.restaurantesGuardado.first;
         while (!restKey.equals(Character.toString(temp.key))) {
@@ -204,7 +219,11 @@ public class Funciones {
         String[] arr = temp.menu.split("/");
         return arr;
     }
-
+    /**
+     * Description: Transforma una key en su respectivo indice del grafo
+     * @param key key del cliente o del restaurante
+     * @return indice del grafo correspondiente
+     */
     public int transformToValidIndex(String key) {
         int index;
         try {
@@ -219,7 +238,11 @@ public class Funciones {
         }
         return index;
     }
-
+    /**
+     * Description: Transforma un string con la ruta mas corta entre dos nodos (separados por comas y representados por sus indices) a su version real
+     * @param route String de la ruta representado con los indices del grafo
+     * @return String con la ruta más corata con las keys de cada nodo
+     */
     public String transformToRealRoute(String route) {
         String solution = "";
         String[] arr = route.split(",");

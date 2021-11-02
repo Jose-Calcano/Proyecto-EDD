@@ -17,7 +17,10 @@ public class Pedido {
         this.pedido = pedido;
         this.next = null;
     }
-    
+    /**
+     * Description: Ordena los atributos de el pedido en forma del txt
+     * @return los atributos ordenados en un string separados por comas
+     */
     public String getPedidoString() {
         String res = this.llegada + "," + this.salida + "," + this.pedido;
         return res;
